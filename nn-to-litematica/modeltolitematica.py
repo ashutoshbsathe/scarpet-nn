@@ -5,12 +5,17 @@ import os
 from litematica_nbt import serialized_tag 
 import time 
 
-global_save_dict = './litematica_schematics/'
-weights_path = '../nn-training/pretrained/best_model_epoch_173_acc_99.24.pt'
+global_save_dict = './litematica_schematics/' # directory where all the generated schematics will be placed
+weights_path = '../nn-training/pretrained/best_model_epoch_173_acc_99.24.pt' # path to saved weights 
 
+# author field of the schematic
 author = 'ashutoshbsathe'
-global_nn_name = '2classmnistexample'
+# global id for neural network. generated schematic will have name of the format `global_nn_name.layer_name.litematic`
+# so for `fc1` layer, schematic generated will be named as `2classmnistexample.fc1.weight.layer`
+global_nn_name = '2classmnistexample' 
+# block to be used for representing +1 in the weight file
 pos_block = 'minecraft:purple_stained_glass'
+# block to be used for representing -1 in the weight file
 neg_block = 'minecraft:lime_stained_glass'
 
 def string2signedint(bits):
