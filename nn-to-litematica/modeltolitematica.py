@@ -6,7 +6,7 @@ from litematica_nbt import serialized_tag
 import time 
 
 global_save_dict = './litematica_schematics/'
-weights_path = '../nn-training/best_model_epoch_173_acc_99.24.pt'
+weights_path = '../nn-training/pretrained/best_model_epoch_173_acc_99.24.pt'
 
 author = 'ashutoshbsathe'
 global_nn_name = '2classmnistexample'
@@ -86,7 +86,7 @@ def singlelayer2litematic(weights, layer_name='sample_layer', verbose=False):
         print(litematica_nbt_data)
 
     data = parse_nbt(litematica_nbt_data)
-    file_name = global_nn_name + layer_name
+    file_name = global_nn_name + '.' + layer_name
     save_path = global_save_dict + '/' + file_name + '.litematic'
     File(data).save(save_path, gzipped=True)
     print('Litematica scheamtic generated at : {}'.format(save_path))
