@@ -11,7 +11,7 @@ from binarized_modules import  BinarizeLinear, BinarizeConv2d
 from mnist2classdataloader import get_mnist_2_class_dataloader
 import glob
 import os
-#from binarized_modules import  Binarize,Ternarize,Ternarize2,Ternarize3,Ternarize4,HingeLoss
+
 # Training settings
 parser = argparse.ArgumentParser(description='PyTorch MNIST Example')
 parser.add_argument('--batch-size', type=int, default=64, metavar='N',
@@ -39,57 +39,6 @@ torch.manual_seed(args.seed)
 if args.cuda:
     torch.cuda.manual_seed(args.seed)
 
-"""
-kwargs = {'num_workers': 1, 'pin_memory': True} if args.cuda else {}
-train_loader = torch.utils.data.DataLoader(
-    datasets.MNIST('../data', train=True, download=True,
-                   transform=transforms.Compose([
-                       transforms.Resize((16, 16)),
-                       transforms.ToTensor(),
-                       transforms.Normalize((0.1309,), (0.2629,)) #0.1307, 0.3081 orig 
-                   ])),
-    batch_size=args.batch_size, shuffle=True, **kwargs)
-test_loader = torch.utils.data.DataLoader(
-    datasets.MNIST('../data', train=False, transform=transforms.Compose([
-                       transforms.Resize((16, 16)),
-                       transforms.ToTensor(),
-                       transforms.Normalize((0.1309,), (0.2629,))
-                   ])),
-    batch_size=args.test_batch_size, shuffle=True, **kwargs)
-"""
-"""
-class Net(nn.Module):
-    def __init__(self):
-        super(Net, self).__init__()
-        self.infl_ratio=3
-        self.fc1 = BinarizeLinear(784, 2048*self.infl_ratio)
-        self.htanh1 = nn.Hardtanh()
-        self.bn1 = nn.BatchNorm1d(2048*self.infl_ratio)
-        self.fc2 = BinarizeLinear(2048*self.infl_ratio, 2048*self.infl_ratio)
-        self.htanh2 = nn.Hardtanh()
-        self.bn2 = nn.BatchNorm1d(2048*self.infl_ratio)
-        self.fc3 = BinarizeLinear(2048*self.infl_ratio, 2048*self.infl_ratio)
-        self.htanh3 = nn.Hardtanh()
-        self.bn3 = nn.BatchNorm1d(2048*self.infl_ratio)
-        self.fc4 = nn.Linear(2048*self.infl_ratio, 10)
-        self.logsoftmax=nn.LogSoftmax()
-        self.drop=nn.Dropout(0.5)
-
-    def forward(self, x):
-        x = x.view(-1, 28*28)
-        x = self.fc1(x)
-        x = self.bn1(x)
-        x = self.htanh1(x)
-        x = self.fc2(x)
-        x = self.bn2(x)
-        x = self.htanh2(x)
-        x = self.fc3(x)
-        x = self.drop(x)
-        x = self.bn3(x)
-        x = self.htanh3(x)
-        x = self.fc4(x)
-        return self.logsoftmax(x)
-"""
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
@@ -110,7 +59,6 @@ train_loader, test_loader = get_mnist_2_class_dataloader()
 model = Net()
 if args.cuda:
     model.cuda()
-
 
 criterion = nn.BCEWithLogitsLoss()
 optimizer = optim.SGD(model.parameters(), lr=args.lr, momentum=0.9)
