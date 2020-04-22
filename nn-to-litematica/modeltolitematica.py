@@ -64,11 +64,11 @@ def singlelayer2litematic(weights, layer_name='sample_layer', verbose=False):
                 break 
             else:
                 bit_string = bits[i+j] + bit_string
+        num = string2signedint(bit_string)
         if verbose:
             print(num.bit_length(), num)
             print(len(bit_string), bit_string)
             print(64 * '-')
-        num = string2signedint(bit_string)
         assert num.bit_length() <= len(bit_string) - 1
         block_states += str(num) + 'L, '
     block_states = block_states[:-2] + ']'
