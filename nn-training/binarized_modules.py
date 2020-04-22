@@ -1,4 +1,4 @@
-# KAnged from 
+# Kanged from 
 # https://github.com/itayhubara/BinaryNet.pytorch/blob/d194d99eb01ac6045cc5b035fe9f8b7c3dacd63f/models/binarized_modules.py
 import torch
 import pdb

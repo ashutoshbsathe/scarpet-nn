@@ -13,7 +13,7 @@ import glob
 import os
 
 # Training settings
-parser = argparse.ArgumentParser(description='PyTorch MNIST Example')
+parser = argparse.ArgumentParser(description='PyTorch Binarized Neural Networks Example')
 parser.add_argument('--batch-size', type=int, default=64, metavar='N',
                     help='input batch size for training (default: 256)')
 parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
@@ -55,6 +55,7 @@ class Net(nn.Module):
         out = F.hardtanh(self.fc1(out))
         out = self.fc2(out)
         return out
+
 train_loader, test_loader = get_mnist_2_class_dataloader()
 model = Net()
 if args.cuda:
