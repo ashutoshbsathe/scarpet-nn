@@ -9,3 +9,5 @@ python3, pytorch 0.4.0+, torchvision 0.2.1+
 
 ## Usage
 Run the [`main_mnist2class.py`](main_mnist2class.py) using python. Training hyperparameters can be modified by passing respective option. Refer to [`main_mnist2class.py`](main_mnist2class.py) for list of all tweakable hyperparameters. To run the code with recommended hyperparameters, you can simple run [`train.bat`](train.bat) in Powershell on Windows 10 or run [`train.sh`](train.sh) on Linux/Mac.
+
+Pretrained model with 99.24% accuracy on this custom dataset is also [available](pretrained/best_model_epoch_173_acc_99.24.pt).
