@@ -50,7 +50,7 @@ clear_buffer(b_pos) -> (
     x = get(b_pos, 0);
     y = get(b_pos, 1);
     z = get(b_pos, 2);
-    run(str('/fill %d %d %d %d %d %d air', x, y, z, x, 256-y, z));
+    run(str('/fill %d %d %d %d %d %d air', x, y, z, x, 255, z));
     return(null);
 );
 
