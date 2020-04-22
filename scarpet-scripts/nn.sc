@@ -15,17 +15,11 @@ is_low(block_pos) -> (
 );
 
 set_high_activation(block_pos) -> (
-    x = get(block_pos, 0);
-    y = get(block_pos, 1);
-    z = get(block_pos, 2);
-    run(str('/setblock %d %d %d %s', x, y, z, str(global_activations_high)))
+    set(block_pos, global_activations_high);
 );
 
 set_low_activation(block_pos) -> (
-    x = get(block_pos, 0);
-    y = get(block_pos, 1);
-    z = get(block_pos, 2);
-    run(str('/setblock %d %d %d %s', x, y, z, str(global_activations_low)))
+    set(block_pos, global_activations_low);
 );
 
 list_abs(list_input) -> (
