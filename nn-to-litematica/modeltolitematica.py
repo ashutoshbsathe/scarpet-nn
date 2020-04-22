@@ -76,7 +76,7 @@ def singlelayer2litematic(weights, layer_name='sample_layer', verbose=False):
     mod_time = int(time.time())
 
     litematica_nbt_data = serialized_tag.format(
-        enc_x=sizeX, enc_y=sizeY, enc_z=sizeZ, author=author, time=mod_time
+        enc_x=sizeX, enc_y=sizeY, enc_z=sizeZ, author=author, time=mod_time,
         total_volume=sizeX*sizeY*sizeZ, total_blocks=total_blocks,
         pos_x=0, pos_y=0, pos_z=0, metadata_name=layer_name,
         size_x=sizeX, size_y=sizeY, size_z=sizeZ, pos_block=pos_block,
