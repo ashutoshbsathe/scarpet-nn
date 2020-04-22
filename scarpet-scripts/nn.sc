@@ -1,3 +1,7 @@
+// `nn` scarpet app
+// contains definitions for neural network layer computations in scarpet
+
+
 // import globals 
 import('nn-utils', 'global_activations_high', 'global_activations_low', 'global_weight_high', 'global_weight_low');
 // import world manipulation helpers
@@ -160,26 +164,3 @@ fc(i_pos1, i_pos2, w_pos1, w_pos2, a_pos1, a_pos2) -> (
     );
 
 );
-
-clear_activations() -> (
-
-    run(str('/fill %d %d %d %d %d %d air', 11, 8, 9, 5, 2, 12));
-    run(str('/fill %d %d %d %d %d %d air', 9, 4, 29, 7, 2, 36));
-    run(str('/fill %d %d %d %d %d %d air', 8, 2, 57, 8, 2, 72));
-    run(str('/fill %d %d %d %d %d %d air', 16, 2, 75, 1, 2, 75));
-    run(str('/fill %d %d %d %d %d %d air', 12, 2, 101, 5, 2, 101));
-
-);
-
-forward() -> (
-
-    conv(l(16, 16, -4), l(1, 1, -4), l(7, 2, 2), l(10, 2, 2), l(11, 8, 9), l(5, 2, 12), 3, 2);
-    conv(l(11, 8, 9), l(5, 2, 12), l(5, 2, 19), l(12, 2, 22), l(9, 4, 29), l(7, 2, 36), 3, 2);
-    conv(l(9, 4, 29), l(7, 2, 36), l(1, 2, 43), l(16, 2, 50), l(8, 2, 57), l(8, 2, 72), 3, 2);
-    move(l(8, 2, 57), l(8, 2, 72), l(1, 2, 75), l(16, 2, 75));
-    fc(l(1, 2, 75), l(16, 2, 75), l(5, 2, 79), l(12, 2, 94), l(5, 2, 101), l(12, 2, 101));
-    fc(l(5, 2, 101), l(12, 2, 101), l(8, 2, 108), l(8, 2, 115), l(8, 2, 122), l(8, 2, 122));
-    print(str('The prediction is class %s', is_high(l(8, 2, 122))));
-    
-);
-
