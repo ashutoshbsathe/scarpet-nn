@@ -73,7 +73,7 @@ def singlelayer2litematic(weights, layer_name='sample_layer', verbose=False):
         block_states += str(num) + 'L, '
     block_states = block_states[:-2] + ']'
 
-    mod_time = int(time.time())
+    mod_time = int(time.time()) * 1000 # litematica apparently reads nanoseconds
 
     litematica_nbt_data = serialized_tag.format(
         enc_x=sizeX, enc_y=sizeY, enc_z=sizeZ, author=author, time=mod_time,
