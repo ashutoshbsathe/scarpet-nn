@@ -78,7 +78,7 @@ conv(i_pos1, i_pos2, w_pos1, w_pos2, a_pos1, a_pos2, kernel_size, stride, game_t
                 );
                 target_pos = output_act_pt + l(0, 0, c);
                 if(bool(reduce_vector(buffer)), set_high_activation(target_pos), set_low_activation(target_pos));
-                game_tick(game_tick_time);
+                if(game_tick_time != 0, game_tick(game_tick_time));
             );
         );
     );
@@ -121,7 +121,7 @@ move(i_pos1, i_pos2, o_pos1, o_pos2, game_tick_time) -> (
                 if(bool(get(blocks, idx)), set_high_activation(target_pos), 
                     set_low_activation(target_pos));
                 idx += 1;
-                game_tick(game_tick_time);
+                if(game_tick_time != 0, game_tick(game_tick_time));
             );
         );
     );
@@ -165,7 +165,7 @@ fc(i_pos1, i_pos2, w_pos1, w_pos2, a_pos1, a_pos2, game_tick_time) -> (
             target_pos = a_pos1 + l(x*a_x_dir, 0, y*a_z_dir);
             if(bool(reduce_vector(buffer)),
                 set_high_activation(target_pos), set_low_activation(target_pos));
-            game_tick(game_tick_time);
+            if(game_tick_time != 0, game_tick(game_tick_time));
         );
     );
 
