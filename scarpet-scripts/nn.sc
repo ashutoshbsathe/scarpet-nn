@@ -16,7 +16,8 @@ import('nn-utils', 'sign', 'xnor');
 // output activation coords a_pos1 to a_pos2
 // activations lie in (x, y) plane with channels in z direction
 // weights lie in (x, z) plane - blocks parallel to z axis represent channels for input and on x axis represent channels for output
-conv(i_pos1, i_pos2, w_pos1, w_pos2, a_pos1, a_pos2, kernel_size, stride) -> (
+// `game_tick_time` is the amount of ms the game should tick after placing an activation block. It keeps the game more responsive
+conv(i_pos1, i_pos2, w_pos1, w_pos2, a_pos1, a_pos2, kernel_size, stride, game_tick_time) -> (
 
     // check for correct dimensions
     i_dim = list_abs(i_pos1 - i_pos2) + 1;
@@ -77,6 +78,7 @@ conv(i_pos1, i_pos2, w_pos1, w_pos2, a_pos1, a_pos2, kernel_size, stride) -> (
                 );
                 target_pos = output_act_pt + l(0, 0, c);
                 if(bool(reduce_vector(buffer)), set_high_activation(target_pos), set_low_activation(target_pos));
+                game_tick(game_tick_time);
             );
         );
     );
@@ -84,7 +86,8 @@ conv(i_pos1, i_pos2, w_pos1, w_pos2, a_pos1, a_pos2, kernel_size, stride) -> (
 );
 
 // reshape and the blocks between (i_pos1 -> i_pos2) to (o_pos1, o_pos2)
-move(i_pos1, i_pos2, o_pos1, o_pos2) -> (
+// `game_tick_time` is the amount of ms the game should tick after placing an activation block. It keeps the game more responsive
+move(i_pos1, i_pos2, o_pos1, o_pos2, game_tick_time) -> (
 
     i_dim = list_abs(i_pos1 - i_pos2) + 1;
     o_dim = list_abs(o_pos1 - o_pos2) + 1;
@@ -118,13 +121,15 @@ move(i_pos1, i_pos2, o_pos1, o_pos2) -> (
                 if(bool(get(blocks, idx)), set_high_activation(target_pos), 
                     set_low_activation(target_pos));
                 idx += 1;
+                game_tick(game_tick_time);
             );
         );
     );
 
 );
 
-fc(i_pos1, i_pos2, w_pos1, w_pos2, a_pos1, a_pos2) -> (
+// `game_tick_time` is the amount of ms the game should tick after placing an activation block. It keeps the game more responsive
+fc(i_pos1, i_pos2, w_pos1, w_pos2, a_pos1, a_pos2, game_tick_time) -> (
 
     i_dim = list_abs(i_pos1 - i_pos2) + 1;
     w_dim = list_abs(w_pos1 - w_pos2) + 1;
@@ -160,6 +165,7 @@ fc(i_pos1, i_pos2, w_pos1, w_pos2, a_pos1, a_pos2) -> (
             target_pos = a_pos1 + l(x*a_x_dir, 0, y*a_z_dir);
             if(bool(reduce_vector(buffer)),
                 set_high_activation(target_pos), set_low_activation(target_pos));
+            game_tick(game_tick_time);
         );
     );
 
