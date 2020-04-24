@@ -18,7 +18,8 @@ clear_activations() -> (
     run(str('/fill %d %d %d %d %d %d air', 16, 2, 75, 1, 2, 75));
     run(str('/fill %d %d %d %d %d %d air', 12, 2, 101, 5, 2, 101));
     set(l(8, 2, 122), 'air');
-
+    return('\nCompleted');
+    
 );
 
 forward() -> (
@@ -31,7 +32,6 @@ forward() -> (
     move(l(8, 2, 57), l(8, 2, 72), l(1, 2, 75), l(16, 2, 75), game_tick_time);
     fc(l(1, 2, 75), l(16, 2, 75), l(5, 2, 79), l(12, 2, 94), l(5, 2, 101), l(12, 2, 101), game_tick_time);
     fc(l(5, 2, 101), l(12, 2, 101), l(8, 2, 108), l(8, 2, 115), l(8, 2, 122), l(8, 2, 122), game_tick_time);
-    print(str('The prediction is class %s', is_high(l(8, 2, 122))));
-    return(is_high(l(8, 2, 122)));
+    return(str('\nThe neural network predicts the drawing as digit %d\n', is_high(l(8, 2, 122))));
 
 );
