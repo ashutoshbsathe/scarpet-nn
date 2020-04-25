@@ -1,0 +1,9 @@
+remote_theme: pmarsceill/just-the-docs
+
+title: scarpet-nn
+description: Tools and libraries to run neural networks in Minecraft
+baseurl: /scarpet-nn
+url: "https://ashutoshbsathe.github.io"
+
+search_enabled: true
+permalink: pretty
