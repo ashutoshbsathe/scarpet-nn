@@ -8,7 +8,7 @@ nav_order: 1
 Tools and libraries to run neural networks in Minecraft :pick:
 
 ## Primary features
-1. Supports reconfiguring neural networks
+1. Supports reconfiguring neural networks on the fly
 2. Supports both convolution and fully connected layers
 3. Allows running multiple neural networks in single world
 4. Allows block-by-block visualizations of intermediate activation calculations
@@ -16,6 +16,8 @@ Tools and libraries to run neural networks in Minecraft :pick:
 
 ## Introduction
 `scarpet-nn` is a set of tools that allows players to run [binarized neural networks (BNNs)](https://arxiv.org/abs/1602.02830) in Minecraft. BNNs are a set of neural networks where the weights and the activations of the neural networks are constrained to either +1 or -1. This allows every component of the weights and activation to be represented by single binary bit. The primary motivation behind BNNs is to reduce memory and computational requirements to run neural networks. Because of these reduced requirements, we can now run neural networks in Minecraft. 
+
+`scarpet-nn` is different from [previous implementations](https://www.reddit.com/r/Minecraft/comments/ak22ur/neural_network_for_handwritten_digit_recognition/) of neural networks in Minecraft. `scarpet-nn` API allows running any architecture of binary neural networks in Minecraft. This means, anyone can train their own BNN and use `scarpet-nn` to run it in Minecraft. 
 
 ## Demo 
 

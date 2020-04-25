@@ -16,20 +16,21 @@ nav_order: 2
 ---
 
 
-`scarpet-nn` can be theoretically used to build any neural network architecture involving convolution and fully connected layers. _As explained in the introduction, the framework assumes that the weights, activations and inputs to this neural network are binary_ (i.e. they are either +1 or -1 as explained in ["Binarized Neural Networks"](https://arxiv.org/abs/1602.02830) paper). This guide assumes familiarity with [`pytorch`](https://github.com/pytorch/pytorch) and [`carpetmod`](https://github.com/gnembon/fabric-carpet).
+`scarpet-nn` can be theoretically used to build any neural network architecture involving convolution and fully connected layers. _As explained in the introduction, the framework assumes that the weights, activations and inputs to this neural network are binary_ (i.e. they are either +1 or -1 as explained in ["Binarized Neural Networks"](https://arxiv.org/abs/1602.02830) paper). This guide assumes familiarity with [pytorch](https://github.com/pytorch/pytorch), [litematica](https://github.com/maruohon/litematica) and [carpetmod](https://github.com/gnembon/fabric-carpet).
 
 ## Install dependencies
 Make sure following things are installed:
 
 1. Minecraft Java Edition
 2. Mods: [Litematica](https://github.com/maruohon/litematica) and [carpetmod](https://github.com/gnembon/fabric-carpet)
-3. Python3 with [`pytorch`](https://github.com/pytorch/pytorch) and [`nbtlib`](https://github.com/vberlier/nbtlib)
+3. Python3 with [pytorch](https://github.com/pytorch/pytorch) and [nbtlib](https://github.com/vberlier/nbtlib)
+4. A text editor
 
 
 ## Preparing "binarized" neural network
 As a first step, you should train your neural network as explained in [BNN paper](https://arxiv.org/abs/1602.02830). If you are already familiar with training neural networks in pytorch, you can simply use [`binarized_modules.py`](https://github.com/ashutoshbsathe/scarpet-nn/blob/master/nn-training/binarized_modules.py) for implementation of binarized layers. Sample code for training such a neural network is available [here](https://github.com/ashutoshbsathe/scarpet-nn/blob/master/nn-training/).
 
-To get optimal results, use deterministic binarization instead of stochastic binarization. (Sec 1.1 of [paper](https://arxiv.org/abs/1602.02830) explains difference between the 2). An important thing to remember when training such networks is to properly normalize the input to the neural network so that it can be (deterministically) binarized using [`torch.sign()`](https://pytorch.org/docs/stable/torch.html#torch.sign) directly. 
+To get optimal results, use deterministic binarization instead of stochastic binarization. (Sec 1.1 of [paper](https://arxiv.org/abs/1602.02830) explains difference between these 2 methods). An important thing to remember when training such networks is to properly normalize the input to the neural network so that it can be (deterministically) binarized using [`torch.sign()`](https://pytorch.org/docs/stable/torch.html#torch.sign) directly. 
 
 Moreover, at the moment, the framework does not support `bias` parameters in layers of neural network. So please pass `bias=False` when building your neural network.
 
