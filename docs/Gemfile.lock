@@ -249,6 +249,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
+  jemoji
   just-the-docs (~> 0.2.8)
 
 BUNDLED WITH
