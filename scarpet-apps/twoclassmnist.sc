@@ -10,6 +10,14 @@ set_block_weight_low('lime_stained_glass');
 set_block_activations_high('white_concrete');
 set_block_activations_low('black_concrete');
 
+__command() -> (
+    print('twoclassmnist app\n');
+    print('/twoclassmnist forward - forward passes through nn\n');
+    print('/clear_activations - clears intermediate activations\n');
+    print('');
+    '';
+);
+
 clear_activations() -> (
 
     run(str('/fill %d %d %d %d %d %d air', 11, 8, 9, 5, 2, 12));

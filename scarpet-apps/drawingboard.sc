@@ -5,6 +5,14 @@ global_draw_block = 'white_concrete';
 global_empty_block = 'black_concrete';
 global_reach = 50; // shouldn't be required to changed dynamically
 
+__command() -> (
+    print('drawingboard app\n');
+    print('right click on the drawingboard with any sword to draw\n');
+    print('/drawingboard clear_board - clears the drawingboard\n');
+    print('');
+    '';
+);
+
 is_between(a, b, c) -> (
     // return if (a <= b <= c) || (a >= b >= c)
     return(a >= b && b >= c) || (a <= b && b <= c);

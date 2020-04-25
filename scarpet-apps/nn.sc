@@ -11,6 +11,16 @@ import('nn-utils', 'list_abs', 'list_str', 'concatenate_lists', 'multiply_vector
 // import mathematical helpers 
 import('nn-utils', 'sign', 'xnor');
 
+__command() -> (
+    print('nn app\n');
+    print('Neural network layer implementations in scarpet\n');
+    print('/nn conv - convolution layer implementation\n');
+    print('/nn fc - fully connected layer implementation\n');
+    print('/nn move - like torch.view() but actually copies the block to new place\n');
+    print('');
+    '';
+);
+
 // input activation coords i_pos1, i_pos2
 // weight coords w_pos1 to w_pos2
 // output activation coords a_pos1 to a_pos2
