@@ -16,13 +16,13 @@ nav_order: 2
 ---
 
 
-`scarpet-nn` can be theoretically used to build any neural network architecture involving convolution and fully connected layers. _As explained in the introduction, the framework assumes that the weights, activations and inputs to this neural network are binary_. (i.e. they are either +1 or -1 as explained in ["Binarized Neural Networks"](https://arxiv.org/abs/1602.02830) paper) 
+`scarpet-nn` can be theoretically used to build any neural network architecture involving convolution and fully connected layers. _As explained in the introduction, the framework assumes that the weights, activations and inputs to this neural network are binary_ (i.e. they are either +1 or -1 as explained in ["Binarized Neural Networks"](https://arxiv.org/abs/1602.02830) paper). This guide assumes familiarity with [`pytorch`](https://github.com/pytorch/pytorch) and [`carpetmod`](https://github.com/gnembon/fabric-carpet).
 
 ## Install dependencies
 Make sure following things are installed:
 
 1. Minecraft Java Edition
-2. Mods: [Litematica](https://github.com/maruohon/litematica) and [carpet mod](https://github.com/gnembon/fabric-carpet)
+2. Mods: [Litematica](https://github.com/maruohon/litematica) and [carpetmod](https://github.com/gnembon/fabric-carpet)
 3. Python3 with [`pytorch`](https://github.com/pytorch/pytorch) and [`nbtlib`](https://github.com/vberlier/nbtlib)
 
 
