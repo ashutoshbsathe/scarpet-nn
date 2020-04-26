@@ -5,7 +5,7 @@ nav_order: 1
 parent: Scarpet Apps
 ---
 
-## nn
+# nn
 {: .no_toc }
 
 ## Table of contents
@@ -18,7 +18,7 @@ parent: Scarpet Apps
 
 [\[View source on GitHub\]](https://github.com/ashutoshbsathe/scarpet-nn/blob/master/scarpet-apps/nn.sc)
 
-"nn" app contains implementation of neural network layers. Depends on "nn-utils" for helper functions. At the time of writing, scarpet 1.6 does not have proper support for exception raising and exception handling. Therefore, any error or invalid operation will cause the program to exit abruptly.
+"nn" app contains implementation of neural network layers. Depends on [nn-utils](nn-utils.md) for helper functions. At the time of writing, scarpet 1.6 does not have proper support for exception raising and exception handling. Therefore, any error or invalid operation will cause the program to exit abruptly.
 
 ## Functions
 ### `conv`

@@ -5,7 +5,7 @@ nav_order: 2
 parent: Scarpet Apps
 ---
 
-## nn-utils
+# nn-utils
 {: .no_toc }
 
 ## Table of contents
