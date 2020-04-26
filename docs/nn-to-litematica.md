@@ -20,7 +20,7 @@ nav_order: 3
 [nn-to-litematica](https://github.com/ashutoshbsathe/scarpet-nn/blob/master/nn-to-litematica) module converts the binary weights from the pytorch checkpoint into litematica schematics. Every litematica is arranged so that the first 2 dimensions lie in (x, z) plane. Moreover, the loading point of schematic (the block where player is standing when loading schematic) always represents the very first number in weights (i.e. index [0, 0, 0] in weights array). The first dimension of weight array is from loading point towards positive X axis. The second dimension of weight array is from loading point towards positive Z axis. Any dimensions more than 3 are reshaped into third axis (Y axis).
 
 ## Representation of `conv` layers
-We follow the general representation rules as stated above. Here, since `conv` laeyrs are stored as a 4 dimensional array, we need to squeeze extra dimension to make it 3 dimensional. Typical shape of `conv` layer is $$[c_2, c_1, f_h, f_w]$$. 
+We follow the general representation rules as stated above. Here, since `conv` layers are stored as a 4 dimensional array, we need to squeeze extra dimension to make it 3 dimensional. Typical shape of `conv` layer is $$[c_2, c_1, f_h, f_w]$$. 
 Here,
 * $$c_2$$ = Number of channels output activations should have
 * $$c_1$$ = Number of channels input activations should have
