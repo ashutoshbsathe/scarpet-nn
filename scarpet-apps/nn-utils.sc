@@ -59,14 +59,6 @@ list_sign(list_input) -> (
     map(list_input, sign(_));
 );
 
-clear_buffer(b_pos) -> (
-    x = get(b_pos, 0);
-    y = get(b_pos, 1);
-    z = get(b_pos, 2);
-    run(str('/fill %d %d %d %d %d %d air', x, y, z, x, 255, z));
-    return(null);
-);
-
 concatenate_lists(list1, list2) -> (
     output = l();
     loop(length(list1), output += get(list1, _));
