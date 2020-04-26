@@ -1,5 +1,7 @@
 remote_theme: pmarsceill/just-the-docs
 
+markdown: kramdown
+
 title: scarpet-nn
 description: Tools and libraries to run neural networks in Minecraft
 baseurl: /scarpet-nn
