@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Litematica Schematic Generation
-nav_order: 3
+nav_order: 4
 ---
 
 # Litematica Schematic Generation
