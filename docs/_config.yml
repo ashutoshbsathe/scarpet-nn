@@ -9,7 +9,7 @@ baseurl: /scarpet-nn
 search_enabled: true
 permalink: pretty
 
-footer_content: "Copyright &copy; 2020-2020 Ashutosh Sathe. Distributed by a <a href=\"https://github.com/ashutoshbsathe/scarpet-nn/blob/master/LICENSE\">GPL v3 license.</a>"
+footer_content: "Copyright &copy; 2020 Ashutosh Sathe. Distributed by a <a href=\"https://github.com/ashutoshbsathe/scarpet-nn/blob/master/LICENSE\">GPL v3 license.</a>"
 
 plugins:
   - jemoji
