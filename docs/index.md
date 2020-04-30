@@ -23,9 +23,17 @@ Tools and libraries to run neural networks in Minecraft :pick:
 `scarpet-nn` is different from [previous implementations](https://www.reddit.com/r/Minecraft/comments/ak22ur/neural_network_for_handwritten_digit_recognition/) of neural networks in Minecraft. `scarpet-nn` API allows running any architecture of binary neural networks in Minecraft. This means, anyone can train their own BNN and use `scarpet-nn` to run it in Minecraft. You can know more about BNNs in the [Binarized Neural Networks](binarized-nn.md) section of this documentation.
 
 ## Demo 
+Working classifier demo
 
 <div class="yt-iframe-container">
 <iframe src="https://www.youtube.com/embed/LVmOcAYbYdU" 
 frameborder="0" allowfullscreen class="yt-iframe-video"></iframe>
 </div>
 
+<hr/>
+
+Block by block visualization
+<div class="yt-iframe-container">
+<iframe src="https://www.youtube.com/embed/KEcUKpBTk8M" 
+frameborder="0" allowfullscreen class="yt-iframe-video"></iframe>
+</div>
