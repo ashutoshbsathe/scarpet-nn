@@ -11,5 +11,7 @@ permalink: pretty
 
 footer_content: "Copyright &copy; 2020 Ashutosh Sathe. Distributed by a <a href=\"https://github.com/ashutoshbsathe/scarpet-nn/blob/master/LICENSE\">GPL v3 license.</a>"
 
+ga_tracking: UA-163324683-1
+
 plugins:
   - jemoji
