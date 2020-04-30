@@ -96,7 +96,7 @@ import('nn-utils', 'is_high'); // check if block is high (bit 1) or low (bit 0)
 We always start by putting input layer. In our case, input is a 16x16 image with single channel. We have also defined that black concrete represents -1 or bit 0 and white concrete represents +1 or bit 1. We start by building a wall for input.
 
 <figure>
-  <img src="images/tutorial_input_layer.png" alt="InputLayerForward" style="width:100%">
+  <img src="../images/tutorial_input_layer.png" alt="InputLayerForward" style="width:100%">
   <figcaption>
     Input layer Minecraft world. Notice orientation of input layer using top left (TL) and bottom right (BR) corners. In case you want a different orientation, these corners will be flipped accordingly.
   </figcaption>
@@ -105,22 +105,22 @@ We always start by putting input layer. In our case, input is a 16x16 image with
 Followed by this layer, is `conv1` layer. This is where the generated litematica schematic comes in handy. Load the schematic somewhere in the world and note the coordinates carefully. Refer to [litematica schematic generation](nn-to-litematica.md) for documentation of coordinates of weight layers.
 
 <figure>
-  <img src="images/tutorial_verify_weight_dimensions.png" alt="VerifyWegithDimensionsForward" style="width:100%">
+  <img src="../images/tutorial_verify_weight_dimensions.png" alt="VerifyWegithDimensionsForward" style="width:100%">
   <figcaption>
-    "Load Schematic" menu when loading the `conv1` layer. Notice the dimensions of the schematic before loading. Verify these with the actual dimensions of the layer. Note down the coordinates of TL and BR points for use in the scarpet app.
+    "Load Schematic" menu when loading the 'conv1' layer. Notice the dimensions of the schematic before loading. Verify these with the actual dimensions of the layer. Note down the coordinates of TL and BR points for use in the scarpet app.
   </figcaption>
 </figure>
 <figure>
-  <img src="images/tutorial_weight_layer_description.png" alt="WeightLayerForward" style="width:100%">
+  <img src="../images/tutorial_weight_layer_description.png" alt="WeightLayerForward" style="width:100%">
   <figcaption>
-    `conv1` layer loaded into the Minecraft world. Note the coordinates of starting and ending points as shown.
+    'conv1' layer loaded into the Minecraft world. Note the coordinates of starting and ending points as shown.
   </figcaption>
 </figure>
 
 Following `conv1.weight` should be the activation produced by operating `conv1` on the input. Since the shape of the image is $$[16, 16, 1]$$, shape of the `conv1.weight` is $$[4, 1, 3, 3]$$ with kernel size $$3$$ and stride of $$2$$, we get output activation shape as $$[4, 7, 7]$$. (You can read more about this calculation [here](https://cs231n.github.io/convolutional-networks/))
 
 <figure>
-  <img src="images/tutorial_output_activations.png" alt="OutputActivationsForward" style="width:100%">
+  <img src="../images/tutorial_output_activations.png" alt="OutputActivationsForward" style="width:100%">
   <figcaption>
     Placeholder for output activations, carefully note the coordinates of TL and BR to use in the script.
   </figcaption>
