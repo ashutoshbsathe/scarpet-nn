@@ -7,6 +7,9 @@ nav_order: 1
 # scarpet-nn
 Tools and libraries to run neural networks in Minecraft :pick:
 
+[View Demo Video](#demo){: .btn .btn-green } 
+[Demo Minecraft World Download](https://drive.google.com/open?id=13lw4Ct5H-vgh2ajpMc7Xw2NHdzymXeEa){: .btn .btn-outline }
+
 ## Primary features
 1. Supports reconfiguring neural networks on the fly
 2. Supports both convolution and fully connected layers
