@@ -24,4 +24,8 @@ Tools and libraries to run neural networks in Minecraft :pick:
 
 ## Demo 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LVmOcAYbYdU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="yt-iframe-container">
+<iframe src="https://www.youtube.com/embed/LVmOcAYbYdU" 
+frameborder="0" allowfullscreen class="yt-iframe-video"></iframe>
+</div>
+
