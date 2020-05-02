@@ -19,13 +19,13 @@ __command() -> (
 );
 
 clear_activations() -> (
-
-    run(str('/fill %d %d %d %d %d %d air', 11, 8, 9, 5, 2, 12));
-    run(str('/fill %d %d %d %d %d %d air', 9, 4, 29, 7, 2, 36));
-    run(str('/fill %d %d %d %d %d %d air', 8, 2, 57, 8, 2, 72));
-    run(str('/fill %d %d %d %d %d %d air', 16, 2, 75, 1, 2, 75));
-    run(str('/fill %d %d %d %d %d %d air', 12, 2, 101, 5, 2, 101));
-    set(l(8, 2, 122), 'air');
+	
+    volume( 11, 8,   9, 5, 2, 12,  set(_,'air'));
+    volume(  9, 4,  29, 7, 2, 36,  set(_,'air'));
+    volume(  8, 2,  57, 8, 2, 72,  set(_,'air'));
+    volume( 16, 2,  75, 1, 2, 75,  set(_,'air'));
+    volume( 12, 2, 101, 5, 2, 101, set(_,'air'));
+    set(8, 2, 122, 'air');
     return('\nCompleted');
     
 );

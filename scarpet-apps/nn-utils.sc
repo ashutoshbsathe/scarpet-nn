@@ -23,66 +23,38 @@ set_block_activations_low(b) -> (
     global_activations_low = block(b);
 );
 
-is_high(block_pos) -> (
-    return((block(block_pos) == global_weight_high) || 
-        (block(block_pos) == global_activations_high));
-);
+is_high(block_pos) -> ( (block(block_pos) == global_weight_high) || (block(block_pos) == global_activations_high) );
 
-is_low(block_pos) -> (
-    return((block(block_pos) == global_weight_low) || 
-        (block(block_pos) == global_activations_low));
-);
+is_low(block_pos) -> ( (block(block_pos) == global_weight_low) || (block(block_pos) == global_activations_low) );
 
-set_high_activation(block_pos) -> (
-    set(block_pos, global_activations_high);
-);
+set_high_activation(block_pos) -> set(block_pos, global_activations_high);
 
-set_low_activation(block_pos) -> (
-    set(block_pos, global_activations_low);
-);
+set_low_activation(block_pos) -> set(block_pos, global_activations_low);
 
-list_abs(list_input) -> (
-    map(list_input, abs(_));
-);
+list_abs(list_input) -> map(list_input, abs(_));
 
-list_str(list_input) -> (
-    output = str('[ ');
-    map(list_input, output += str(_) + str(' '));
-    return(output + ']');
-);
+list_str(list_input) -> ( '[ '+join(' ', list_input)+' ]' );
 
-sign(x) -> (
-    if(x >= 0, 1, -1);
-);
+sign(x) -> if(x >= 0, 1, -1);
 
-list_sign(list_input) -> (
-    map(list_input, sign(_));
-);
+list_sign(list_input) -> map(list_input, if(_ >= 0, 1, -1) );
 
 concatenate_lists(list1, list2) -> (
     output = l();
-    loop(length(list1), output += get(list1, _));
-    loop(length(list2), output += get(list2, _));
-    return(output);
+	for(list1, output+=_);
+	for(list2, output+=_);
+    output
 );
 
-xnor(bit1, bit2) -> (
-    return(!((bit1 && !bit2) || (!bit1 && bit2)));
-);
+xnor(bit1, bit2) -> ( bit1 == bit2 );
 
 multiply_vectors(vec_a, vec_b) -> (
     if(length(vec_a) != length(vec_b),
         exit(str('Lengths of vectors for multiplication should match')));
-    output = l();
-    loop(length(vec_a), 
-        a = get(vec_a, _);
-        b = get(vec_b, _);
-        output += xnor(a, b);
-    );
-    return(output);
+    map(range(length(vec_a)), xnor(vec_a:_, vec_b:_))
 );
 
 reduce_vector(vec) -> (
     total = reduce(vec, _a+_, 0);
-    return(if(total >= round(length(vec)/2), 1, 0));
+    total >= round(length(vec)/2) // not sure you need to round here
 );
