@@ -37,6 +37,6 @@ __on_player_uses_item(player, item_tuple, hand) ->
 clear_board() -> (
     l(x1, y1, z1) = global_pos1;
 	l(x2, y2, z2) = global_pos2;
-	successes = volume(x1,y1,z1,x,y2,z2, set(_, global_empty_block));
+	successes = volume(x1,y1,z1, x2,y2,z2, set(_, global_empty_block));
 	str('\nCleared %d blocks from drawingboard', successes)
 );
