@@ -35,7 +35,9 @@ list_abs(list_input) -> map(list_input, abs(_));
 
 list_str(list_input) -> ( '[ '+join(' ', list_input)+' ]' );
 
-sign(x) -> if(x >= 0, 1, -1);
+// notice that sign(x) is not exactly like mathematical signum function
+// this function considers `0` as positive number as well
+sign(x) -> if(x >= 0, 1, -1); 
 
 list_sign(list_input) -> map(list_input, if(_ >= 0, 1, -1) );
 
@@ -56,5 +58,7 @@ multiply_vectors(vec_a, vec_b) -> (
 
 reduce_vector(vec) -> (
     total = reduce(vec, _a+_, 0);
-    total >= round(length(vec)/2) // not sure you need to round here
+    // can theoretically work without rounding off, 
+    // but rounding off will ease out comparisons like 2 and 2.00000000001
+    total >= round(length(vec)/2) 
 );

@@ -21,6 +21,12 @@ __command() -> (
     '';
 );
 
+// note for future development:
+// as of now, following calls in scarpet are exactly same
+// `volume(1, 1, 1, 2, 2, 2, expr)` and `volume(2, 2, 2, 1, 1, 1, expr)`
+// if this behavior changes in future, we can utilize them for more efficient matrix operations
+
+
 // input activation coords i_pos1, i_pos2
 // weight coords w_pos1 to w_pos2
 // output activation coords a_pos1 to a_pos2
@@ -44,7 +50,7 @@ conv(i_pos1, i_pos2, w_pos1, w_pos2, a_pos1, a_pos2, kernel_size, stride, game_t
                    w_dim:0);
     if(a_dim != a_dim_calc, 
         exit(str('\nInvalid dimensions for output of convolution function\ncalculated size: %s, given size: %s', 
-        list_str(a_dim_calc), list_str(a_dim)))); // lists should pretty print themselves by default using str('%s', list)
+        list_str(a_dim_calc), list_str(a_dim)))); 
 
     // check that input and output activation directions are same
     if (i_pos1:0 >= i_pos2:0, i_x_dir = -1, i_x_dir = 1);
@@ -96,7 +102,7 @@ conv(i_pos1, i_pos2, w_pos1, w_pos2, a_pos1, a_pos2, kernel_size, stride, game_t
 
 );
 
-// reshape and the blocks between (i_pos1 -> i_pos2) to (o_pos1, o_pos2)
+// reshape and the blocks between (i_pos1, i_pos2) to (o_pos1, o_pos2)
 // `game_tick_time` is the amount of ms the game should tick after placing an activation block. It keeps the game more responsive
 move(i_pos1, i_pos2, o_pos1, o_pos2, game_tick_time) -> (
 
@@ -121,7 +127,7 @@ move(i_pos1, i_pos2, o_pos1, o_pos2, game_tick_time) -> (
     blocks = l();
 	loop(i_dim:0, i = _;
 	    loop(i_dim:1, j = _;
-		    loop(i_dim:2, k = _;  // can replace 3 nested loops with one `scan` or `volume` call utilizing _x, _y and _z
+		    loop(i_dim:2, k = _;  
                 target_pos = i_pos1 + l(i*i_x_dir, j*i_y_dir, k*i_z_dir);
                 blocks += is_high(target_pos);
             );
@@ -130,7 +136,7 @@ move(i_pos1, i_pos2, o_pos1, o_pos2, game_tick_time) -> (
     idx = 0;
 	loop(o_dim:0, i = _;
 	    loop(o_dim:1, j = _;
-		    loop(o_dim:2, k = _;  // can replace 3 nested loops with one `scan` or `volume` call utilizing _x, _y and _z
+		    loop(o_dim:2, k = _;  
                 target_pos = o_pos1 + l(i*o_x_dir, j*o_y_dir, k*o_z_dir);
                 if(blocks:idx, set_high_activation(target_pos), set_low_activation(target_pos));
                 idx += 1;
