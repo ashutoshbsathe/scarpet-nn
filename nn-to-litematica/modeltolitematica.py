@@ -61,14 +61,12 @@ def singlelayer2litematic(weights, layer_name='sample_layer', verbose=False):
                     total_blocks += 1
     block_states = '[L; '
     for i in range(0, len(bits), 32):
-        bit_string = ''
-        for j in range(32):
-            if (i+j) >= len(bits):
-                bit_string = (32 - j) * '00' + bit_string
-                assert len(bit_string) == 64
-                break 
-            else:
-                bit_string = bits[i+j] + bit_string
+        bitarray = reversed(bits[i:i+32])
+        bit_string = ''.join(bitarray)
+        assert len(bit_string) <= 64 and len(bit_string) % 2 == 0, \
+            ValueError('Invalid length of bitarray. Should be 64, recieved {}'.format(len(bit_string)))
+        padding = int((64 - len(bit_string)) / 2)
+        bit_string = '00' * padding + bit_string
         num = string2signedint(bit_string)
         if verbose:
             print(num.bit_length(), num)
