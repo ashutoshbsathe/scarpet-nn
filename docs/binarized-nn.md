@@ -9,7 +9,7 @@ nav_order: 3
 Neural networks such as [BERT](https://github.com/google-research/bert) have millions of parameters and need expensive GPUs to use them.
 
 <center>
-<img src="images/expensive_bert.png" alt="BERT expensive">
+<img src="../images/expensive_bert.png" alt="BERT expensive">
 </center>
 
 There have been quite some efforts to make neural networks computationally inexpensive in past few years. One of the ideas is to use less bits for representing weights and activations. A vanilla neural network uses 32 bit floating point numbers to store each and every weight and activations in memory. This means if your network has large number of parameters, you will quickly run out of memory.
