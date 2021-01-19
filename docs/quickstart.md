@@ -127,6 +127,7 @@ Following `conv1.weight` should be the activation produced by operating `conv1` 
 </figure>
 
 By placing all of these components in the world, we are now ready to define our first layer in the forward function as follows:
+
 ```
 forward() -> (
     conv(
@@ -138,3 +139,4 @@ forward() -> (
         0 // `game_tick_delay`. See the docs for `nn` app for more info
     );
 )
+```

@@ -37,3 +37,5 @@ Block by block visualization
 <iframe src="https://www.youtube.com/embed/KEcUKpBTk8M" 
 frameborder="0" allowfullscreen class="yt-iframe-video"></iframe>
 </div>
+
+<sup> This project was featured by <a href="https://twitter.com/hardmaru/status/1256148074709172225?lang=en">@hardmaru</a> on Twitter and by <a href="https://www.programmersought.com/article/34804115029/">this</a> blog</sup>
